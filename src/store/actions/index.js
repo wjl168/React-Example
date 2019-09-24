@@ -1,20 +1,19 @@
 import {ADD_TODO, TOGGLE_COMPLETE, CHANGE_DISPLAY} from "./action-type";
 let actions = {
-  addTodo (playload) {
+  addTodo (payload) {
     return {
       type: ADD_TODO,
-      playload
+      payload
     }
   },
-  toggleComplete (playload) {
+  toggleComplete (payload) {
     return {
       type: TOGGLE_COMPLETE,
-      playload
+      payload
     }
   },
   //payload为以下3个值（all,uncompleted,completed）
   changeDisplay (payload) {
-    console.log(payload)
     return {
       type: CHANGE_DISPLAY,
       payload

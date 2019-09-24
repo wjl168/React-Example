@@ -16,6 +16,7 @@ import Forms from "./page/form/Forms";
 import ChildOrSlot from "./page/children/ChildOrSlot";
 import Topics from "./page/router/Child";
 import Todo from "./page/todo/Todo";
+import Count from "./page/count/Count";
 const Home = () => (
   <div>
     <h2>Home</h2>
@@ -37,6 +38,7 @@ class App extends Component {
           <NavLink activeClassName='on' to="/innerPage">callBack</NavLink>
           <NavLink activeClassName='on' to="/protected">个人中心</NavLink>
           <NavLink activeClassName='on' to="/todo">redux</NavLink>
+          <NavLink activeClassName='on' to="/count">count</NavLink>
         </nav>
         <hr/>
         <Switch>
@@ -50,6 +52,7 @@ class App extends Component {
           <Route path="/innerPage" component={() => <h2>inner Page</h2>} />
           <Route path="/login" component={Login} />
           <Route path="/todo" component={Todo} />
+          <Route path="/count" component={Count} />
           <PrivateRoute path="/protected" component={Protected} />
           <Route component={NoMatch} />
         </Switch>

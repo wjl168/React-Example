@@ -1,10 +1,22 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import actions from "../../store/actions";
+import store from "../../store";
 class Todo extends Component{
   constructor (props) {
     super(props)
     this.changeRadio = this.changeRadio.bind(this)
+  }
+  componentDidMount() {
+    // store.dispatch({type: 'CHANGE_DISPLAY', payload: 'uncompleted'})
+    store.dispatch(actions.changeDisplay('uncompleted')) // 与上面结果一致
+    let unsubscribe = store.subscribe(() => // 监听
+      console.log(store.getState()) // 数据变化
+    );
+// unsubscribe() // 执行解除监听
+    store.subscribe(() => {
+      console.log(store.getState())
+    })
   }
   //按display条件过滤数据
   changeRadio (event){

@@ -28,7 +28,7 @@ function reducer (state=initState, action) {
     case TOGGLE_COMPLETE:
       newState = {
         todos: state.todos.map(item => {
-          if (item.id == action.payload) {
+          if (item.id === action.payload) {
             item.isComplete = !item.isComplete;
           }
           return item;
