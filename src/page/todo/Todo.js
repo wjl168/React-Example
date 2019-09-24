@@ -14,9 +14,6 @@ class Todo extends Component{
       console.log(store.getState()) // 数据变化
     );
 // unsubscribe() // 执行解除监听
-    store.subscribe(() => {
-      console.log(store.getState())
-    })
   }
   //按display条件过滤数据
   changeRadio (event){
