@@ -33,12 +33,13 @@ class State extends Component{
     }))*/
   }
   render() {
+    const { isToggleOn } = this.state
     return (
       <div>
-        <TipsBar warn={this.state.isToggleOn}/>
-        <Greeging isLoggedIn={this.state.isToggleOn} />
+        <TipsBar warn={isToggleOn}/>
+        <Greeging isLoggedIn={isToggleOn} />
         <button onClick={this.handleClick}>
-          {this.state.isToggleOn ? '已登录' : '未登录'}
+          {isToggleOn ? '已登录' : '未登录'}
         </button>
       </div>
     )
