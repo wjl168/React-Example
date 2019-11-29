@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { List, Avatar, Button, Skeleton } from 'antd'
+import FormValidate from './FormValidate'
 function Item(props) {
   if (!props.data.length) return null
   return (
@@ -89,6 +91,8 @@ class Forms extends Component{
           <input type="submit" value='提交' />
         </form>
         <Item data={this.state.list} />
+        <FormValidate />
+
       </div>
     )
   }

@@ -18,11 +18,26 @@ import Topics from "./page/router/Child";
 import Todo from "./page/todo/Todo";
 import Count from "./page/count/Count";
 import Hooks from "./page/hooks/Hooks";
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
+class Home extends Component {
+  constructor (props) {
+    super(props)
+    this.state={
+      stateName: null
+    }
+  }
+  componentDidMount () {
+    const { state } = this.props.history.location
+    state && this.setState({stateName: state.stateName})
+  }
+  render() {
+    return (
+      <React.Fragment> {/* 可简写成<></>，有属性时则以前者 */}
+        Home state=>{this.state.stateName}
+      </React.Fragment>
+    )
+  }
+}
+
 class App extends Component {
   render() {
     return (
@@ -82,7 +97,7 @@ const AuthButton = withRouter(
         欢迎!{" "}
         <button
           onClick={() => {
-            fakeAuth.signout(() => history.push("/"));
+            fakeAuth.signout(() => history.push({pathname: '/', state: {stateName: 'loginOut'}}));
           }}
         >
           退出
